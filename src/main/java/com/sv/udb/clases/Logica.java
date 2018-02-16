@@ -41,17 +41,82 @@ public class Logica {
     public List<Tienda> getTopTres(){
         List<Tienda> top = new ArrayList();
         
+        double menor = this.listTienda.get(0).getPrecio();
+        
         try {
             for(Tienda temp : this.listTienda){
-                if(temp.getPrecio() >  0){
-                    top.add(temp);
-                }
+                    
+                    if(temp.getPrecio() > menor){
+                    top.add(temp);                   
+                }             
+                
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         
         return top;
+    }
+    
+    public List<Tienda> getMInExistencias(){
+        List<Tienda> minExistencias = new ArrayList<>();
+        
+        int existencias = this.listTienda.get(0).getMinPerm();
+        try {
+            for(Tienda temp: this.listTienda){
+                if(temp.getMinPerm() > existencias ){
+                    minExistencias.add(temp);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return minExistencias;
+    }
+    
+    public List<String> getProductos(){
+        List<String> listProductos = new ArrayList<>();
+        
+        try {
+            for(Tienda temp: this.listTienda){
+                if(temp.getNombre() != null)
+                listProductos.add(temp.getNombre());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return listProductos;
+    } 
+    
+    public List<Double> getPrecios(){
+        List<Double> listPrecio = new ArrayList<>();
+        double contador = 0;
+        try {
+            for(Tienda temp2: this.listTienda){
+                
+                    listPrecio.add(temp2.getPrecio());
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return listPrecio;
+    }
+    
+    public List<Integer>getExistencias(){
+        List<Integer> listExistencias = new ArrayList<>();
+        int contador = 0;
+        try {
+            for(Tienda temp : this.listTienda){
+                listExistencias.add(temp.getStock());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return listExistencias;
     }
     
 }

@@ -10,6 +10,10 @@ package com.sv.udb.clases;
  * @author rigoberto
  */
 public class Tienda {
+
+    static Tienda parseTienda(double contador2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     private String nombre;
     private double precio;
     private int stock;
